@@ -17,7 +17,7 @@ export class PostList extends Component {
             this.setState({posts: responce.data})
         }).catch(error => {
             console.log(error);
-            thi
+            this.setState({errorMsg: 'Error Occuring'})
         })
     }
     
@@ -32,7 +32,7 @@ export class PostList extends Component {
                      posts.map(post => <div key={post.id}>{post.title}</div>) : null
                  },
                  {
-
+                     errorMsg ? <div>{errorMsg}</div>: null
                  }
             </div>
         )
